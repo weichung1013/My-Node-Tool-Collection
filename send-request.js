@@ -3,8 +3,8 @@
 const fs = require("fs");
 const axios = require("axios");
 
-const inputFilePath =
-  "./empty.json";
+// const inputFilePath = "./fail.json";
+const inputFilePath = "./empty.json";
 // const baseUrl = "http://localhost:8000";
 const baseUrl = "https://smart-factory.cloud.foxtronev.com";
 
@@ -25,10 +25,10 @@ async function sendRequest(baseUrl, inputFilePath) {
       return;
     }
 
-    const jsonData = JSON.parse(data);
+    // const jsonData = JSON.parse(data);
     axios.defaults.headers.common["Authorization"] = `${token}`;
     axios
-      .post(baseUrl + "/production-station-diagnostics", jsonData)
+      .post(baseUrl + "/production-station-diagnostics", data)
       .then((response) => {
         console.log(response.data);
         console.log("Data sent successfully.");
